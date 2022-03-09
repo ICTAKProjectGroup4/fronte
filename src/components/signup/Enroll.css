@@ -1,0 +1,9 @@
+.myTable{
+
+    width:600px;
+    align-content: center;
+    border: 1px;
+    margin-left: 450px;
+    padding: 15px;
+    border-spacing: 10px;
+}

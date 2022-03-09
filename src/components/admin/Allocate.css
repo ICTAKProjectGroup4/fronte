@@ -1,0 +1,77 @@
+
+.allocation form{
+     
+    margin-left:20%;
+    margin-top:5%;
+    margin-right:20%;
+    padding-left:13%;
+    padding-top:6%;
+    padding-right:6%;
+    border:solid black;
+    height:60rem;
+    font:bold;
+    font-size:20px;
+    background-color:rgb(29, 92, 92);
+    text-align: left;
+    width: 35%;
+    margin: 0 auto;
+
+}
+
+.option{
+    display: inline-block;
+    float: right;
+}
+
+.type{
+    display: inline-block;
+    text-transform: capitalize;
+    float: right
+}
+
+
+.skill{
+    display: inline-block;
+    text-transform: capitalize;
+    width: 50%;
+    float: right
+}
+
+.meeting{
+    display: inline-block;
+    width: 55%;
+    float: right
+}
+
+
+.datepicker{
+    display: inline-block;
+}
+
+.button{
+    margin-top: 30px;
+    margin-right: 100px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #fff;
+    background-color: #191970;
+    height: 48px;
+}
+
+.button:hover{
+    background-color: #1db954;
+}
