@@ -27,7 +27,6 @@ export const Login = (props) => {
   }
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      alert('validation successful')
       loginUser();
     }
   }, [formErrors])

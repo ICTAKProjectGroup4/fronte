@@ -44,7 +44,7 @@ console.log(utype);
                 {utype==="admin" && <Link className="link" to="/schedule">View Schedule</Link>}
                 {utype==="trainer" && <Link className="link" to="/viewprofile">View Profile</Link>}
                 {utype==="trainer" && <Link className="link" to="/viewsch">View Schedule</Link>}
-                {utype==="trainer" && <Link className="link" to="/editprofile">Edit Profile</Link>}
+                {utype==="trainer" && <Link className="link" to="/editprofile">Edit Profile/Upload Photo</Link>}
                 {utype==="trainer" && <Link className="link" to="/showcalendar">Show Calendar</Link>}
     
                 {_email && <Link className="link" onClick={logout} to="/">Logout</Link>}

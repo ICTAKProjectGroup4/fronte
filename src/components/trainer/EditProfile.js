@@ -1,5 +1,6 @@
 import React, { useEffect,useState }  from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export const EditProfile = () => {
   //const { _id } = useParams();
@@ -14,7 +15,8 @@ export const EditProfile = () => {
 console.log(_email);
   // Temporary storage of DB data
   const [trainer, settrainer] = useState({id:0,name:"", address:"",approved:"",phone:"", company:"",designation:"",qualification:"", skill: "",type:"" });
-
+//Photo upload
+const [trainerPhoto, setTrainerPhoto] = useState({file:[]});
 
   // Backend Connection API Fetch
   useEffect(() => {
@@ -38,6 +40,33 @@ function handleChange(event){
   if(value)
   settrainer({...trainer,[name]:value});
   }
+
+  //handle image upload
+  const id = trainer.id;
+  const handleImageUpload = (event) => {
+    setTrainerPhoto({
+        ...trainerPhoto,
+        file:event.target.files[0],
+      });
+    }
+
+    const [isSucces, setSuccess] = useState(null);
+    const submit = async () =>{
+        const formdata = new FormData(); 
+        formdata.append('photo', trainerPhoto.file);
+        axios.post(`http://localhost:5000/api/photo/${id}`, formdata,{   
+            headers: { "Content-Type": "multipart/form-data" } 
+    })
+    .then(res => { // then print response status
+      console.warn(res);
+      if(res.data.success === 1){
+        setSuccess("Image upload successfully");
+      }
+
+    })
+  }
+
+
 //edit
 async function editTrainer(event){
   alert( trainer.id);
@@ -70,9 +99,12 @@ setuptrainerData(body);
 alert(" Trainer profile updated successfully");
 // const handleOnClick = () => history.push('/article-list');
 
+
+
+
 }
   return (
-    <div>  <br/><h1>Edit Profile</h1><br/>  
+    <div>  <br/><h1>Edit Profile & Upload Photo</h1><br/>  
     
 <> <form>
 
@@ -150,8 +182,26 @@ alert(" Trainer profile updated successfully");
     </tbody>
 </table>
 </form>
+    <div>
+    <h2>Upload Image
+    <div className="formdesign">
+      {isSucces !== null ? <h4> {isSucces} </h4> :null }
+        <div className="form-row">
+          <label className="text-white">Select Image :</label>
+          <input type="file" className="form-control" name="upload_file"  onChange={handleImageUpload} />
+        </div>
+
+        <div className="form-row">
+          <button type="submit" className="btn btn-dark" onClick={()=>submit()} > Save </button>
+          
+        </div>
+      </div>
+    </h2>
+    </div>
 
     </>
        <br/></div>
+
+       
   )
 }

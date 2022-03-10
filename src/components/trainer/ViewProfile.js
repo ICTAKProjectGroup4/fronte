@@ -4,6 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import './Trainer.css';
 
 import React, { useEffect,useState }  from 'react';
 import { useParams } from 'react-router-dom';
@@ -20,7 +21,7 @@ export const ViewProfile = () => {
 
 console.log(_email);
   // Temporary storage of DB data
-  const [trainer, settrainer] = useState({id:0,name:"", address:"",approved:"", company:"", qualification:"", skill: "",type:"" });
+  const [trainer, settrainer] = useState({id:0,name:"", address:"",approved:"", company:"", qualification:"", skill: "",type:"", photo:""});
 
 
   // Backend Connection API Fetch
@@ -46,11 +47,18 @@ console.log(_email);
     marginLeft:420
   
 }
-
+console.log(trainer.photo);
 
   return (
     <div><br/>     <br/><h1>ViewProfile</h1><br/>  
-<>     <TableContainer style={atable}>
+<>    
+
+    <div className='photo'>
+    <img className='image'
+          src={`http://localhost:5000/static/${trainer.photo}`} alt="Upload image" width="200px" height="200px" border = "1px solid blue"/>
+    </div>
+
+       <TableContainer style={atable}>
         <Table  sx={{ maxWidth: 650 }} >
           <TableHead>
           
