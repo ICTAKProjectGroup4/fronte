@@ -42,6 +42,7 @@ function App() {
               <Route path="/showcalendar" element={<ShowCalendar/>} />
               <Route path="/pending/:_id" element={<PendingTrainer />} />
               <Route path="/allocate/:id" element={<Allocate />} />
+              <Route path="/calendar/:id" element={<ShowCalendar />} />
               
               </Routes>
         <Footer/>

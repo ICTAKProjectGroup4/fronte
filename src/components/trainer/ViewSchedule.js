@@ -9,6 +9,7 @@ import { useTable, useFilters, useGlobalFilter} from 'react-table';
 import { Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import moment from 'moment';
+import "./Calendar.css";
 
 
 function Table({ columns, data }) {
@@ -150,13 +151,21 @@ const columns = React.useMemo(()=>
         },
         
     ], [] )
+
+
+    function clicked(cell) {
+        const id = cell.target.value;
+        navigate(`/calendar/${id}`)
+    }
   return (
+      <>
     <div><h1>View Schedule</h1> 
     <h3>Name : {trainer.name} [ID : {trainer.id}]</h3> 
-<>    
-      
-    </>
        <br/><Table columns={columns} data={data} /></div>
+       <button className='button'  value= {trainer.id} onClick={clicked}> Show Calendar</button>
+       <br></br>
+       <br></br>
+       </>
   )
 }
 
