@@ -1,8 +1,13 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logo from './logo1.png';
+import logo from './logo.png';
 import './Header.css';
+
+
+
 export const Header = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
@@ -33,7 +38,8 @@ console.log(utype);
     return (
         <div><>
             <nav className="header">
-           <img className='logo' src={logo} alt="ICTAK FOOTER"/>  <h2  className='head' >ICTAK TRAINER MANAGEMENT SYSTEM</h2>
+           <img className='logo' src={logo} alt="ICTAK FOOTER"/>  
+           <h2  className='head' ></h2>
             <div className="headlinks">
           
                 <Link className="link" to="/">Home</Link>
@@ -42,16 +48,17 @@ console.log(utype);
                 {utype==="admin" && <Link className="link" to="/approve">Approve Trainer</Link>}
                 {utype==="admin" && <Link className="link" to="/search">Search Trainer & Allocate</Link>}
                 {utype==="admin" && <Link className="link" to="/schedule">View Schedule</Link>}
+                {utype==="trainer" && <Link className="link" to="/editprofile">Edit Profile/Upload Photo</Link>}
                 {utype==="trainer" && <Link className="link" to="/viewprofile">View Profile</Link>}
                 {utype==="trainer" && <Link className="link" to="/viewsch">View Schedule</Link>}
-                {utype==="trainer" && <Link className="link" to="/editprofile">Edit Profile/Upload Photo</Link>}
+                
     
                 {_email && <Link className="link" onClick={logout} to="/">Logout</Link>}
             </div>
            
            </nav>
             <div>
-            <br/> {_email &&   <h2 >welcome to ICTAK TRAINER MANAGEMENT SYSTEM as  {utype} <br/> Login Id :{_email}</h2>}
+            <br/> {_email &&   <h2 className='welcome'>Welcome to ICTAK TRAINER MANAGEMENT SYSTEM as  {utype} <br/> Login Id :{_email}</h2>}
             </div>
             </>
         </div>

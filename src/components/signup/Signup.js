@@ -29,7 +29,7 @@ export const Signup = () => {
   }
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      alert('validation successful')
+      // alert('validation successful')
       registerUser();
     }
   }, [formErrors])
@@ -41,15 +41,17 @@ export const Signup = () => {
 
     //    const response = await fetch(`https://smith-blog.herokuapp.com/api/register`, {
     // const response = await fetch(`https:///api/register`, {
-    const response = await fetch(`http://localhost:5000/api/register`, {
+    const response = await fetch(`https://trainerappictak.herokuapp.com/api/register`, {
       method: 'post',
       body: JSON.stringify({ email, password, utype }),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    console.log(response, "response");
-    if (response) {
+    // console.log(response, "response");
+    // if (response) {
+      console.log(response.body, "response");
+      if (response.status != 201) {
       alert('Successfullly Registerd to ICTAK Trainer Application ');
       localStorage.setItem('email1', email);
       navigate("/enroll", { replace: true });
@@ -57,7 +59,7 @@ export const Signup = () => {
 
     }
     else {
-      alert('error... ');
+      alert('Error : Email id already exists');
 
     }
 

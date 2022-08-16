@@ -46,6 +46,8 @@ function Table({ columns, data }) {
           return (
               <>
                <input type="text" placeholder='Search...' className='search' onChange={handleChange}></input>
+               <br></br>
+               <br></br>
           <table {...getTableProps()} className="tablea">
           <thead>
               {headerGroups.map(headerGroup => (
@@ -89,7 +91,7 @@ export const ViewCalendar = () => {
     }, []);
 
     async function fetchAPI() {
-        const response = await fetch(`http://localhost:5000/api/schedule`);
+        const response = await fetch(`https://trainerappictak.herokuapp.com/api/schedule`);
         const body = await response.json();
         settrainerappr(body);
     }
@@ -149,8 +151,9 @@ export const ViewCalendar = () => {
     
     return (
         <div>
-         <h1>View Schedule  </h1> 
+         <h1 className='head1'>View Schedule  </h1> 
         <Table columns={columns} data={data} />
+        <br></br>
         </div>
         );
         }

@@ -24,7 +24,7 @@ const [trainerPhoto, setTrainerPhoto] = useState({file:[]});
   }, [_email]);
 
   async function fetchAPI() {
-      const response = await fetch(`http://localhost:5000/api/viewprofile/${_email}`);
+      const response = await fetch(`https://trainerappictak.herokuapp.com/api/viewprofile/${_email}`);
       const body = await response.json();
       settrainer(body);
   }
@@ -54,13 +54,13 @@ function handleChange(event){
     const submit = async () =>{
         const formdata = new FormData(); 
         formdata.append('photo', trainerPhoto.file);
-        axios.post(`http://localhost:5000/api/photo/${id}`, formdata,{   
+        axios.post(`https://trainerappictak.herokuapp.com/api/photo/${id}`, formdata,{   
             headers: { "Content-Type": "multipart/form-data" } 
     })
     .then(res => { // then print response status
-      console.warn(res);
-      if(res.data.success === 1){
-        setSuccess("Image upload successfully");
+      console.log(res);
+      if (res.status === 200) {
+        alert("Image upload successfully");
       }
 
     })
@@ -82,10 +82,10 @@ async function editTrainer(event){
  //const photo = enrollValues.photo;
  const qualification = trainer.qualification;
  const skill = trainer.skill;
-  const response = await fetch(`http://localhost:5000/api/editprofile/${id}/`, {
+  const response = await fetch(`https://trainerappictak.herokuapp.com/api/editprofile/${id}/`, {
       method: 'post',
    //   body: JSON.stringify({ name,title,description,user,upvotes,username, text }),
-   body: JSON.stringify({ name,address,company,courses,designation,phone,qualification,skill}),
+   body: JSON.stringify({ name,address,company,designation,phone,qualification,skill}),
       headers: {
           'Content-Type': 'application/json'
       }
@@ -104,11 +104,11 @@ alert(" Trainer profile updated successfully");
 
 }
   return (
-    <div>  <br/><h1>Edit Profile & Upload Photo</h1><br/>  
+    <div>  <br/><h1 className='head1'>Edit Profile & Upload Photo</h1><br/>  
     
 <> <form>
 
-<table className="myTable" cellPadding={15} >
+<table className="table" cellPadding={15} >
     <tbody>
 <tr>
          <th>Particulars </th>
@@ -121,7 +121,7 @@ alert(" Trainer profile updated successfully");
 
 <tr>
          <td>Trainer type </td>
-            <td> {trainer.type}</td>
+            <td className='trainertype'> {trainer.type}</td>
         </tr>
 <tr>
          <td>Approval status </td>
@@ -147,7 +147,7 @@ alert(" Trainer profile updated successfully");
             <td>Current Company</td>
             <td><input type="text" name="company" size={50} value={trainer.company} onChange={handleChange} /></td>
         </tr>
-        <tr>
+        {/* <tr>
             <td>Course</td>
             <td><select name="courses" value={trainer.courses} >
 
@@ -160,7 +160,7 @@ alert(" Trainer profile updated successfully");
                 <option value="06_MLAI">MACHINE LEARNING & ARTIFICIAL INTELLIGENCE</option>
             </select>
             </td>
-        </tr>
+        </tr> */}
         <tr>
             <td>Designation</td>
             <td><input type="text" name="designation" size={50} value={trainer.designation} onChange={handleChange} /></td>
@@ -183,7 +183,7 @@ alert(" Trainer profile updated successfully");
 </table>
 </form>
     <div>
-    <h2>Upload Image
+    <h2>Upload Photo
     <div className="formdesign">
       {isSucces !== null ? <h4> {isSucces} </h4> :null }
         <div className="form-row">

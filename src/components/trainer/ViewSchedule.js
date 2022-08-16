@@ -85,7 +85,7 @@ export const ViewSchedule = () => {
   }, [_email]);
 
   async function fetchAPIa() {
-      const response = await fetch(`http://localhost:5000/api/viewprofile/${_email}`);
+      const response = await fetch(`https://trainerappictak.herokuapp.com/api/viewprofile/${_email}`);
       const body = await response.json();
       settrainer(body);
   }
@@ -100,7 +100,7 @@ useEffect(() => {
 
 async function fetchAPIb() {
     let id = trainer.id;
-    const response = await fetch(`http://localhost:5000/api/schedule/${id}`);
+    const response = await fetch(`https://trainerappictak.herokuapp.com/api/schedule/${id}`);
     const body = await response.json();
     settrainerappr(body);
 }
@@ -159,10 +159,10 @@ const columns = React.useMemo(()=>
     }
   return (
       <>
-    <div><h1>View Schedule</h1> 
+    <div><h1 className='head1'>View Schedule</h1> 
     <h3>Name : {trainer.name} [ID : {trainer.id}]</h3> 
        <br/><Table columns={columns} data={data} /></div>
-       <button className='button'  value= {trainer.id} onClick={clicked}> Show Calendar</button>
+       {/* <button className='button'  value= {trainer.id} onClick={clicked}> Show Calendar</button> */}
        <br></br>
        <br></br>
        </>

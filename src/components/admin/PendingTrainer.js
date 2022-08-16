@@ -28,7 +28,7 @@ import { useNavigate } from 'react-router';
     }, [_id]);
 
     async function fetchAPI() {
-        const response = await fetch(`http://localhost:5000/api/pending/${_id}`);
+        const response = await fetch(`https://trainerappictak.herokuapp.com/api/pending/${_id}`);
         const body = await response.json();
         settrainerpend(body);
     }
@@ -53,7 +53,7 @@ import { useNavigate } from 'react-router';
     let name=trainerpend.name
     let email=trainerpend.email
     if (type== "internal" || type== "empanelled" || type== "expert" ){
-    await fetch(`http://localhost:5000/api/pending/${_id}/approve`, {
+    await fetch(`https://trainerappictak.herokuapp.com/api/pending/${_id}/approve`, {
       method: 'post',
       body: JSON.stringify({ id,name,email,type}),
       
@@ -125,6 +125,8 @@ import { useNavigate } from 'react-router';
       </TableContainer>
       
     <button onClick={clicked} className="button">Approve</button>
+    <br></br>
+    <br></br>
     </>
     );
   }

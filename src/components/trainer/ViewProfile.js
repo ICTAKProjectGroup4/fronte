@@ -30,7 +30,7 @@ console.log(_email);
   }, [_email]);
 
   async function fetchAPI() {
-      const response = await fetch(`http://localhost:5000/api/viewprofile/${_email}`);
+      const response = await fetch(`https://trainerappictak.herokuapp.com/api/viewprofile/${_email}`);
       const body = await response.json();
       settrainer(body);
   }
@@ -39,8 +39,7 @@ console.log(_email);
     fontWeight: 'bold'
 }
  const atable = {
- width: 500,
-    height: 500,
+    
     display: 'flex',
     alignItems: 'left',
     justifyContent: 'left',
@@ -50,15 +49,15 @@ console.log(_email);
 console.log(trainer.photo);
 
   return (
-    <div><br/>     <br/><h1>ViewProfile</h1><br/>  
+    <div><br/>     <br/><h1 className='head1'>ViewProfile</h1><br/>  
 <>    
 
     <div className='photo'>
     <img className='image'
-          src={`http://localhost:5000/static/${trainer.photo}`} alt="Upload image" width="200px" height="200px" border = "1px solid blue"/>
+          src={`https://trainerappictak.herokuapp.com/static/${trainer.photo}`} alt="Please Upload Photo First" width="200px" height="200px" border = "1px solid blue"/>
     </div>
 
-       <TableContainer style={atable}>
+       <TableContainer className='table' style={atable}>
         <Table  sx={{ maxWidth: 650 }} >
           <TableHead>
           
@@ -90,6 +89,10 @@ console.log(trainer.photo);
               <TableCell align="right">{trainer.qualification}</TableCell>
               </TableRow>
               <TableRow>
+              <TableCell>Courses</TableCell>
+              <TableCell align="right">{trainer.courses }</TableCell>
+              </TableRow>
+              <TableRow>
               <TableCell>Skillset</TableCell>
               <TableCell align="right">{trainer.skill}</TableCell>
               </TableRow>
@@ -105,7 +108,7 @@ console.log(trainer.photo);
               </TableRow>
               <TableRow className='buttona'>
               <TableCell>Trainer Type</TableCell>
-              <TableCell align="right"> {trainer.type}</TableCell>
+              <TableCell align="right" className='trainertype'> {trainer.type}</TableCell>
               </TableRow>
           </TableBody>
         </Table>

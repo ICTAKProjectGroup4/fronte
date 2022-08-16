@@ -42,7 +42,7 @@ export const Login = (props) => {
       body: JSON.stringify({ email, password, utype })
     };
 
-    const response = await fetch(`http://localhost:5000/api/userlogin`, requestOptions);
+    const response = await fetch(`https://trainerappictak.herokuapp.com/api/userlogin`, requestOptions);
     // const response = await fetch(`https://smith-blog.herokuapp.com/api/login`);
     console.log(response.body, "response");
     if (response.status != 201) {

@@ -6,3 +6,14 @@
 .image{
     border-radius: 100%;
 }
+
+.head1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-stretch: condensed;
+    background-color: #191970;
+    color: white;
+}
+
+.trainertype{
+    text-transform: capitalize;
+}

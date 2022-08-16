@@ -38,7 +38,7 @@ useEffect(() => {
 }, [id]);
 
 async function fetchAPIb() {
-  const response = await fetch(`http://localhost:5000/api/schedule/${id}`);
+  const response = await fetch(`https://trainerappictak.herokuapp.com/api/schedule/${id}`);
   const body = await response.json();
   settrainerappr(body);
 }

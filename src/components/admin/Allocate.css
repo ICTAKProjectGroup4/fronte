@@ -1,32 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}  
 
 .allocation form{
      
-    margin-left:20%;
-    margin-top:5%;
-    margin-right:20%;
-    padding-left:13%;
-    padding-top:6%;
-    padding-right:6%;
+    margin-left:10%;
+    margin-right:10%;
+    padding-left:3%;
+    padding-top:3%;
+    padding-right:3%;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
     border:solid black;
-    height:60rem;
+    height:55rem;
     font:bold;
-    font-size:20px;
-    background-color:rgb(29, 92, 92);
+    font-size:17px;
+    background-color:rgb(20, 190, 190);
     text-align: left;
     width: 35%;
     margin: 0 auto;
-
+    
 }
 
 .option{
     display: inline-block;
     float: right;
+    font-size:17px;
+    font-weight: 600;
+    color: black;
 }
 
 .type{
     display: inline-block;
     text-transform: capitalize;
-    float: right
+    float: right;
+    font-size:17px;
+    font-weight: 600;
+    color: black;
 }
 
 
@@ -34,15 +45,18 @@
     display: inline-block;
     text-transform: capitalize;
     width: 50%;
-    float: right
+    float: right;
+    font-size:17px;
+    font-weight: 600;
+    color: black;
 }
 
 .meeting{
     display: inline-block;
     width: 55%;
-    float: right
+    float: right;
+    font-size:17px;
 }
-
 
 .datepicker{
     display: inline-block;
@@ -51,6 +65,7 @@
 .button{
     margin-top: 30px;
     margin-right: 100px;
+    margin-left: 30%;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -70,8 +85,18 @@
     color: #fff;
     background-color: #191970;
     height: 48px;
+    
 }
 
 .button:hover{
     background-color: #1db954;
+}
+
+.head1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-stretch: condensed;
+    background-color: #191970;
+    color: white;
+
+
 }
